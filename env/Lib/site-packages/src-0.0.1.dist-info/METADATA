@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: src
+Version: 0.0.1
+Summary: A package for movie recommendation
+Author: AZAD SINGH
+Author-email: azadsinghddn@gmail.com
+Description-Content-Type: text/markdown
+Requires-Dist: streamlit
+
+Movies Recommended System
