@@ -1,10 +1,15 @@
 import pickle
 import streamlit as st  # type: ignore
 import requests
+from dotenv import load_dotenv
+
+#Load environment variable from .env file
+load_dotenv()
 
 # Function to fetch the movie poster using the movie's ID
 def fetch_poster(movie_id):
-    url = "https://api.themoviedb.org/3/movie/{}?api_key=6be1bffe6b6e31e1816a73ddcfb4ef0b".format(movie_id)
+    api_key = os.getenv("TMDB_API_KEY")
+    url = "https://api.themoviedb.org/3/movie/{}?api_key={api_key}".format(movie_id)
     data = requests.get(url).json()
     
     # Check if the 'poster_path' key exists in the response
