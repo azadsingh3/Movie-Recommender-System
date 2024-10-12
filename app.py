@@ -1,3 +1,4 @@
+import os
 import pickle
 import streamlit as st  # type: ignore
 import requests
