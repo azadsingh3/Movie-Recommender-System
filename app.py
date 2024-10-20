@@ -9,18 +9,19 @@ load_dotenv()
 
 # Function to fetch the movie poster using the movie's ID
 def fetch_poster(movie_id):
-    api_key = os.getenv("TMDB_API_KEY")
-    url = "https://api.themoviedb.org/3/movie/{}?api_key={api_key}".format(movie_id)
-    data = requests.get(url).json()
+    api_key = os.getenv("TMDB_API_KEY")  
+    if not api_key:
+        raise ValueError("API key not found. Make sure TMDB_API_KEY is set in your .env file.")
     
-    # Check if the 'poster_path' key exists in the response
-    poster_path = data.get('poster_path')
+    url = f"https://api.themoviedb.org/3/movie/{movie_id}?api_key={api_key}"
+    response = requests.get(url).json()
     
+    poster_path = response.get('poster_path')
     if poster_path:
-        full_path = "http://image.tmdb.org/t/p/w185/" + poster_path
+        full_path = f"http://image.tmdb.org/t/p/w185/{poster_path}"
         return full_path
     else:
-        return "https://via.placeholder.com/185"  # Return placeholder image if no poster
+        return "https://via.placeholder.com/185" # Return placeholder image if no poster
 
 # Function to recommend movies
 def recommend(movie):
