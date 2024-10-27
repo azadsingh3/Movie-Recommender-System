@@ -2,7 +2,7 @@
 # Movie Recommender System
 
 This project implements a Movie Recommender System using Python. It processes datasets containing movie details and metadata to generate recommendations based on genres, keywords, cast, and directors.
-[Movie Recommender System](https://movierecosys9.streamlit.app/)
+
 
 ## Files
 
@@ -49,13 +49,22 @@ cd Movie_Recommender_System
 jupyter notebook Movie_Recommender_System.ipynb
 ```
 
-4. **Try the Live App:**
+4. **Run the App:**
 
-Explore the deployed version of the Movie Recommender System here:
-
+- Open the command prompt terminal and get inside virtual environment:
 ```bash
-https://movierecosys9.streamlit.app/
+env\Scripts\activate
 ```
+- make sure you are in Movie_Recommander_System:
+```bash
+cd Movie_Recommander_System
+```
+
+- Run the Streamlit app:
+```bash
+streamlit run app.py
+```
+The application will be available at http://localhost:8501
 
 ## Code Structure
 
